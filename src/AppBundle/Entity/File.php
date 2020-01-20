@@ -2,8 +2,9 @@
 
 namespace AppBundle\Entity;
 
-use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
+use Gedmo\Timestampable\Traits\TimestampableEntity;
 
 /**
  * File
@@ -13,6 +14,8 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class File
 {
+    use TimestampableEntity;
+
     /**
      * @var int
      *

@@ -3,9 +3,10 @@
 namespace AppBundle\Entity;
 
 use AppBundle\Entity\File;
+use Doctrine\ORM\Mapping as ORM;
 use AppBundle\Entity\PersonsEvent;
 use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Timestampable\Traits\TimestampableEntity;
 
 /**
  * Person
@@ -15,6 +16,8 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Person
 {
+    use TimestampableEntity;
+
     /**
      * @var int
      *

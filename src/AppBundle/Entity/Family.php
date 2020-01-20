@@ -2,9 +2,10 @@
 
 namespace AppBundle\Entity;
 
+use Doctrine\ORM\Mapping as ORM;
 use AppBundle\Entity\FamilyEvent;
 use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Timestampable\Traits\TimestampableEntity;
 
 /**
  * Family
@@ -14,6 +15,8 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Family
 {
+    use TimestampableEntity;
+
     /**
      * @var int
      *

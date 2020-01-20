@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Timestampable\Traits\TimestampableEntity;
 
 /**
  * Place
@@ -12,6 +13,8 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Place
 {
+    use TimestampableEntity;
+
     /**
      * @var int
      *
