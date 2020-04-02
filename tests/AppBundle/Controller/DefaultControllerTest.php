@@ -2,17 +2,22 @@
 
 namespace Tests\AppBundle\Controller;
 
+use GuzzleHttp\Client;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 class DefaultControllerTest extends WebTestCase
 {
     public function testIndex()
     {
-        $client = static::createClient();
+        $client = new Client([
+            'base_uri'        => 'http://localhost:8000',
+            'timeout'         => 0,
+            'allow_redirects' => false,
+        ]);        
+                
+        $response = $client->get('/', null);
 
-        $crawler = $client->request('GET', '/');
+        $this->assertEquals(200, $response->getStatusCode());
 
-        $this->assertEquals(200, $client->getResponse()->getStatusCode());
-        $this->assertContains('Welcome to Symfony', $crawler->filter('#container h1')->text());
     }
 }

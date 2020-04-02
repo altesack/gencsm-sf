@@ -31,8 +31,7 @@ class GencmsImportgedcomCommand extends ContainerAwareCommand
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $doctrine = $this->getContainer()->get('doctrine');
-        $this->em = $doctrine->getEntityManager();
+        $this->em = $this->getContainer()->get('doctrine')->getEntityManager();
 
         $startTime = time();
         $filename = $input->getArgument('filename');
@@ -279,9 +278,8 @@ class GencmsImportgedcomCommand extends ContainerAwareCommand
      *
      * @return Person|null
      */
-    protected function findPerson(string $oldId)
+    protected function findPerson(string $oldId = null)
     {
-        
         return $this->em->getRepository(Person::class)
             ->findOneById($this->personsId[$oldId] ?? 0);
     }
