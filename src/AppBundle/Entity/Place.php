@@ -8,7 +8,7 @@ use Gedmo\Timestampable\Traits\TimestampableEntity;
 /**
  * Place
  *
- * @ORM\Table(name="place")
+ * @ORM\Table(name="places")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\PlaceRepository")
  */
 class Place

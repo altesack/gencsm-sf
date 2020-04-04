@@ -8,3 +8,4 @@ Feature: Person feature
       | id                       | 1        |
       | name                     | Veit     |
       | surname                  | Bach     |
+      | husbandInFamilies[0].id  | 1        |

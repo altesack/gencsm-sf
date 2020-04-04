@@ -4,6 +4,8 @@ namespace AppBundle\Controller;
 
 use AppBundle\Entity\Family;
 use AppBundle\Entity\Person;
+use AppBundle\Normalizer\FamilyNormalizer;
+use AppBundle\Normalizer\PersonNormalizer;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 
@@ -15,11 +17,7 @@ class ApiController extends Controller
     public function getPersonAction(Person $person)
     {
 
-        $data = [
-            'id' => $person->getId(),
-            'name' => $person->getGivn(),
-            'surname' => $person->getSurn(),
-        ];
+        $data = (new PersonNormalizer())->normalize($person);
 
         return $this->json($data);
     }
@@ -29,10 +27,8 @@ class ApiController extends Controller
      */
     public function getFamilyAction(Family $family)
     {
-        $data = [
-            'id' => $family->getId(),
-            // 'surname' => $family->getSurn(),
-        ];
+        $data = (new FamilyNormalizer())->normalize($family);
+
 
         return $this->json($data);
     }

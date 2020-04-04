@@ -9,7 +9,7 @@ use Gedmo\Timestampable\Traits\TimestampableEntity;
 /**
  * File
  *
- * @ORM\Table(name="file")
+ * @ORM\Table(name="files")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\FileRepository")
  */
 class File

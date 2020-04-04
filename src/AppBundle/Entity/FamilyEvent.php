@@ -9,7 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * FamilyEvent
  *
- * @ORM\Table(name="family_event")
+ * @ORM\Table(name="family_events")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\FamilyEventRepository")
  */
 class FamilyEvent extends AbstractEvent

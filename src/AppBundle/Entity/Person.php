@@ -11,7 +11,7 @@ use Gedmo\Timestampable\Traits\TimestampableEntity;
 /**
  * Person
  *
- * @ORM\Table(name="person")
+ * @ORM\Table(name="persons")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\PersonRepository")
  */
 class Person

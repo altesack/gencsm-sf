@@ -10,7 +10,7 @@ use Gedmo\Timestampable\Traits\TimestampableEntity;
 /**
  * Family
  *
- * @ORM\Table(name="family")
+ * @ORM\Table(name="families")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\FamilyRepository")
  */
 class Family
