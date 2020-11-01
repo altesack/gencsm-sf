@@ -1,6 +1,7 @@
 {
-    "name": "marat/app",
-    "license": "proprietary",
+    "name": "altesack/gencsm-sf",
+    "description": "Genealogy CMS. Backend part",
+    "license": "MIT",
     "type": "project",
     "autoload": {
         "psr-4": {
@@ -20,7 +21,7 @@
         ]
     },
     "require": {
-        "php": ">=5.5.9",
+        "php": ">=7.0",
         "doctrine/doctrine-bundle": "^1.6",
         "doctrine/orm": "^2.5",
         "guzzlehttp/guzzle": "~6.0",
