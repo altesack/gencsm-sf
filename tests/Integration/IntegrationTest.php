@@ -4,7 +4,6 @@ namespace App\Tests\Integration;
 
 class IntegrationTest extends AbstractIntegrationTest
 {
-
     public function testHomePageShouldNotExist()
     {
         $response = self::getClient()->get('/', []);

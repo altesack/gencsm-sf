@@ -1,8 +1,6 @@
 <?php
 
-
 namespace App\Tests\Integration;
-
 
 use GuzzleHttp\Client;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
@@ -10,7 +8,6 @@ use Symfony\Component\Process\Process;
 
 abstract class AbstractIntegrationTest extends WebTestCase
 {
-
     /** @var Process */
     private static $serverProcess;
 
@@ -53,10 +50,10 @@ abstract class AbstractIntegrationTest extends WebTestCase
     public static function getClient()
     {
         return new Client([
-            'base_uri'        => self::getBaseUrl(),
-            'http_errors'     => false,
+            'base_uri' => self::getBaseUrl(),
+            'http_errors' => false,
             'connect_timeout' => 2,
-            'timeout'         => 10,
+            'timeout' => 10,
             'allow_redirects' => false,
         ]);
     }
