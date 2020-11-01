@@ -139,8 +139,8 @@ class GencmsImportgedcomCommand extends ContainerAwareCommand
         string $type,
         string $date = null,
         Place $place = null,
-        string $description = '')
-    {
+        string $description = ''
+    ){
         $event = (new PersonsEvent())
             ->setPerson($person)
             ->setTitle($type)
@@ -164,8 +164,7 @@ class GencmsImportgedcomCommand extends ContainerAwareCommand
         string $date = null,
         Place $place = null,
         string $description = ''
-    )
-    {
+    ){
         $event = (new FamilyEvent())
             ->setFamily($family)
             ->setTitle($type)
