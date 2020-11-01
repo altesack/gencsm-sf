@@ -6,8 +6,8 @@ use AppBundle\Entity\Family;
 use AppBundle\Entity\Person;
 use AppBundle\Normalizer\FamilyNormalizer;
 use AppBundle\Normalizer\PersonNormalizer;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class ApiController extends Controller
 {
@@ -16,7 +16,6 @@ class ApiController extends Controller
      */
     public function getPersonAction(Person $person)
     {
-
         $data = (new PersonNormalizer())->normalize($person);
 
         return $this->json($data);
@@ -29,8 +28,6 @@ class ApiController extends Controller
     {
         $data = (new FamilyNormalizer())->normalize($family);
 
-
         return $this->json($data);
     }
-
 }

@@ -7,15 +7,15 @@ use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 class AbstractArrayNormalizer
 {
     /**
-     * @var $normalizer NormalizerInterface
+     * @var NormalizerInterface
      */
     private $normalizer;
 
     /**
      * Class constructor.
-     * __construct
+     * __construct.
      *
-     * @param  mixed $normalizer
+     * @param mixed $normalizer
      *
      * @return void
      */
@@ -27,9 +27,9 @@ class AbstractArrayNormalizer
     }
 
     /**
-     * Normalize array or Collection
+     * Normalize array or Collection.
      *
-     * @param  mixed $data
+     * @param mixed $data
      *
      * @return void
      */

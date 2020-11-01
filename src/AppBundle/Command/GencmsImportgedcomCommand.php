@@ -25,8 +25,7 @@ class GencmsImportgedcomCommand extends ContainerAwareCommand
         $this
             ->setName('gencms:importgedcom')
             ->setDescription('Import data from GEDCOM file')
-            ->addArgument('filename', InputArgument::REQUIRED, 'File name')
-        ;
+            ->addArgument('filename', InputArgument::REQUIRED, 'File name');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
@@ -60,7 +59,6 @@ class GencmsImportgedcomCommand extends ContainerAwareCommand
             $rate = round($filesize / $takenSeconds, 2);
             $output->writeln("\n$takenSeconds seconds taken to handle $filesize bytes. $rate bytes per second\n");
         }
-
     }
 
     protected function importPerson($individual)
@@ -74,7 +72,7 @@ class GencmsImportgedcomCommand extends ContainerAwareCommand
         $events = $individual->getAllEven();
         $media = $individual->getObje();
 
-        if ($givn == "") {
+        if ($givn == '') {
             $givn = $name;
         }
         $person = $this->createPerson($givn, $surn, $sex);
@@ -84,7 +82,7 @@ class GencmsImportgedcomCommand extends ContainerAwareCommand
                 $date = $event->getDate();
                 $place = $this->findOrCreatePlace($event->getPlac());
                 $this->createPersonsEvent($person, $event->getType(), $date, $place);
-            };
+            }
         }
 
         if ($attr) {
@@ -96,21 +94,20 @@ class GencmsImportgedcomCommand extends ContainerAwareCommand
                     $note = current($event->getNote())->getNote();
                 }
                 $this->createPersonsEvent($person, $event->getType(), $date, $note);
-            };
-        };
+            }
+        }
 
         foreach ($media as $mediafile) {
             $this->addFileToPerson($person, $mediafile->getTitl(), $mediafile->getFile());
-        };
-
+        }
     }
 
     /**
-     * createPerson
+     * createPerson.
      *
-     * @param  string $givn
-     * @param  string $surn
-     * @param  string $sex
+     * @param string $givn
+     * @param string $surn
+     * @param string $sex
      *
      * @return Person
      */
@@ -137,7 +134,7 @@ class GencmsImportgedcomCommand extends ContainerAwareCommand
         return $family;
     }
 
-    protected function createPersonsEvent(Person $person, string $type, string $date = null, Place $place = null, string $description = "")
+    protected function createPersonsEvent(Person $person, string $type, string $date = null, Place $place = null, string $description = '')
     {
         $event = (new PersonsEvent())
             ->setPerson($person)
@@ -155,7 +152,8 @@ class GencmsImportgedcomCommand extends ContainerAwareCommand
 
         return $event;
     }
-    protected function createFamilyEvent(family $family, string $type, string $date = null, Place $place = null, string $description = "")
+
+    protected function createFamilyEvent(family $family, string $type, string $date = null, Place $place = null, string $description = '')
     {
         $event = (new FamilyEvent())
             ->setFamily($family)
@@ -173,6 +171,7 @@ class GencmsImportgedcomCommand extends ContainerAwareCommand
 
         return $event;
     }
+
     protected function addFileToPerson(Person $person, string $path, string $title)
     {
         $file = $this->findOrCreateFile($path, $title);
@@ -190,7 +189,7 @@ class GencmsImportgedcomCommand extends ContainerAwareCommand
     }
 
     /**
-     * findOrCreateFile
+     * findOrCreateFile.
      *
      * @param string $path
      * @param string $title
@@ -212,9 +211,9 @@ class GencmsImportgedcomCommand extends ContainerAwareCommand
     }
 
     /**
-     * findOrCreatePlace
+     * findOrCreatePlace.
      *
-     * @param  string $title
+     * @param string $title
      *
      * @return Place|null
      */
@@ -262,18 +261,19 @@ class GencmsImportgedcomCommand extends ContainerAwareCommand
                 $date = $event->getDate();
                 $place = $this->findOrCreatePlace($event->getPlac());
                 $this->createFamilyEvent($family, $event->getType(), $date, $place);
-            };
-        };
+            }
+        }
 
         if ($media) {
             foreach ($media as $mediafile) {
                 $this->addFileToFamily($family, $mediafile->getTitl(), $mediafile->getFile());
-            };
-        };
+            }
+        }
     }
 
     /**
-     * findPerson
+     * findPerson.
+     *
      * @param string $oldId
      *
      * @return Person|null

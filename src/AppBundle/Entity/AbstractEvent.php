@@ -7,9 +7,8 @@ use Gedmo\Timestampable\Traits\TimestampableEntity;
 
 class AbstractEvent
 {
-
     use TimestampableEntity;
-        
+
     /**
      * @var int
      *
@@ -46,9 +45,8 @@ class AbstractEvent
      */
     protected $description;
 
-
     /**
-     * Get id
+     * Get id.
      *
      * @return int
      */
@@ -58,7 +56,7 @@ class AbstractEvent
     }
 
     /**
-     * Set place
+     * Set place.
      *
      * @param string $place
      *
@@ -72,7 +70,7 @@ class AbstractEvent
     }
 
     /**
-     * Get place
+     * Get place.
      *
      * @return string
      */
@@ -82,7 +80,7 @@ class AbstractEvent
     }
 
     /**
-     * Set date
+     * Set date.
      *
      * @param string $date
      *
@@ -96,7 +94,7 @@ class AbstractEvent
     }
 
     /**
-     * Get date
+     * Get date.
      *
      * @return string
      */
@@ -106,7 +104,7 @@ class AbstractEvent
     }
 
     /**
-     * Set title
+     * Set title.
      *
      * @param string $title
      *
@@ -120,7 +118,7 @@ class AbstractEvent
     }
 
     /**
-     * Get title
+     * Get title.
      *
      * @return string
      */
@@ -130,7 +128,7 @@ class AbstractEvent
     }
 
     /**
-     * Set description
+     * Set description.
      *
      * @param string $description
      *
@@ -144,7 +142,7 @@ class AbstractEvent
     }
 
     /**
-     * Get description
+     * Get description.
      *
      * @return string
      */
@@ -153,4 +151,3 @@ class AbstractEvent
         return $this->description;
     }
 }
-

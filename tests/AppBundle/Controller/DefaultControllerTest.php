@@ -13,11 +13,10 @@ class DefaultControllerTest extends WebTestCase
             'base_uri'        => 'http://localhost:8000',
             'timeout'         => 0,
             'allow_redirects' => false,
-        ]);        
-                
+        ]);
+
         $response = $client->get('/', null);
 
         $this->assertEquals(200, $response->getStatusCode());
-
     }
 }

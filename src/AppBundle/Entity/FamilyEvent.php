@@ -2,28 +2,26 @@
 
 namespace AppBundle\Entity;
 
-use AppBundle\Entity\AbstractEvent;
-use AppBundle\Entity\Family;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * FamilyEvent
+ * FamilyEvent.
  *
  * @ORM\Table(name="family_events")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\FamilyEventRepository")
  */
 class FamilyEvent extends AbstractEvent
 {
-
     /**
-     * Family
+     * Family.
+     *
      * @ORM\ManyToOne(targetEntity="Family", inversedBy="events")
      * @ORM\JoinColumn(name="family_id", referencedColumnName="id", nullable=true)
      */
     private $family;
 
     /**
-     * Get many persons could be born in the one family
+     * Get many persons could be born in the one family.
      */
     public function getFamily()
     {
@@ -31,9 +29,9 @@ class FamilyEvent extends AbstractEvent
     }
 
     /**
-     * Set many persons could be born in the one family
+     * Set many persons could be born in the one family.
      *
-     * @return  self
+     * @return self
      */
     public function setFamily(Family $family)
     {
