@@ -2,14 +2,12 @@
 
 namespace AppBundle\Entity;
 
-use AppBundle\Entity\File;
-use Doctrine\ORM\Mapping as ORM;
-use AppBundle\Entity\PersonsEvent;
 use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Timestampable\Traits\TimestampableEntity;
 
 /**
- * Person
+ * Person.
  *
  * @ORM\Table(name="persons")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\PersonRepository")
@@ -56,7 +54,8 @@ class Person
     private $description;
 
     /**
-     * Many persons could be born in the one family
+     * Many persons could be born in the one family.
+     *
      * @ORM\ManyToOne(targetEntity="Family", inversedBy="children")
      * @ORM\JoinColumn(name="born_in_family_id", referencedColumnName="id", nullable=true)
      */
@@ -64,24 +63,28 @@ class Person
 
     /**
      * One person can married many times.
+     *
      * @ORM\OneToMany(targetEntity="Family", mappedBy="husband")
      */
     private $husbandInFamilies;
 
     /**
      * One person can married many times.
+     *
      * @ORM\OneToMany(targetEntity="Family", mappedBy="wife")
      */
     private $wifeInFamilies;
 
     /**
      * Files.
+     *
      * @ORM\ManyToMany(targetEntity="File", mappedBy="persons")
      */
     private $files;
 
     /**
      * Family events.
+     *
      * @ORM\OneToMany(targetEntity="FamilyEvent", mappedBy="family")
      */
     private $events;
@@ -95,7 +98,7 @@ class Person
     }
 
     /**
-     * Get id
+     * Get id.
      *
      * @return int
      */
@@ -105,7 +108,7 @@ class Person
     }
 
     /**
-     * Set givn
+     * Set givn.
      *
      * @param string $givn
      *
@@ -119,7 +122,7 @@ class Person
     }
 
     /**
-     * Get givn
+     * Get givn.
      *
      * @return string
      */
@@ -129,7 +132,7 @@ class Person
     }
 
     /**
-     * Set surn
+     * Set surn.
      *
      * @param string $surn
      *
@@ -143,7 +146,7 @@ class Person
     }
 
     /**
-     * Get surn
+     * Get surn.
      *
      * @return string
      */
@@ -153,7 +156,7 @@ class Person
     }
 
     /**
-     * Set sex
+     * Set sex.
      *
      * @param string $sex
      *
@@ -167,7 +170,7 @@ class Person
     }
 
     /**
-     * Get sex
+     * Get sex.
      *
      * @return string
      */
@@ -177,7 +180,7 @@ class Person
     }
 
     /**
-     * Set description
+     * Set description.
      *
      * @param string $description
      *
@@ -191,7 +194,7 @@ class Person
     }
 
     /**
-     * Get description
+     * Get description.
      *
      * @return string
      */
@@ -201,7 +204,7 @@ class Person
     }
 
     /**
-     * Get born family
+     * Get born family.
      */
     public function getBornInFamily()
     {
@@ -209,9 +212,9 @@ class Person
     }
 
     /**
-     * Set born family
+     * Set born family.
      *
-     * @return  self
+     * @return self
      */
     public function setBornInFamily($bornInFamily)
     {
@@ -267,7 +270,7 @@ class Person
     /**
      * Add file.
      *
-     * @return  self
+     * @return self
      */
     public function addFiles(File $file)
     {
@@ -285,9 +288,9 @@ class Person
     }
 
     /**
-     * Add event
+     * Add event.
      *
-     * @return  self
+     * @return self
      */
     public function addEvent(PersonsEvent $event)
     {

@@ -2,12 +2,10 @@
 
 namespace AppBundle\Entity;
 
-use AppBundle\Entity\AbstractEvent;
-use AppBundle\Entity\Person;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * PersonsEvent
+ * PersonsEvent.
  *
  * @ORM\Table(name="persons_events")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\PersonsEventRepository")
@@ -15,14 +13,15 @@ use Doctrine\ORM\Mapping as ORM;
 class PersonsEvent extends AbstractEvent
 {
     /**
-     * Person
+     * Person.
+     *
      * @ORM\ManyToOne(targetEntity="Person", inversedBy="events")
      * @ORM\JoinColumn(name="person_id", referencedColumnName="id", nullable=true)
      */
     private $person;
 
     /**
-     * Get person
+     * Get person.
      */
     public function getPerson()
     {
@@ -30,9 +29,9 @@ class PersonsEvent extends AbstractEvent
     }
 
     /**
-     * Set person
+     * Set person.
      *
-     * @return  self
+     * @return self
      */
     public function setPerson(Person $person)
     {

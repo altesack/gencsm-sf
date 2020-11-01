@@ -2,12 +2,12 @@
 
 namespace AppBundle\Entity;
 
-use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Timestampable\Traits\TimestampableEntity;
 
 /**
- * File
+ * File.
  *
  * @ORM\Table(name="files")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\FileRepository")
@@ -41,6 +41,7 @@ class File
 
     /**
      * Many Persons have Many files.
+     *
      * @ORM\ManyToMany(targetEntity="Person", inversedBy="files")
      * @ORM\JoinTable(name="files_persons")
      */
@@ -48,6 +49,7 @@ class File
 
     /**
      * Many Families have Many files.
+     *
      * @ORM\ManyToMany(targetEntity="Family", inversedBy="files")
      * @ORM\JoinTable(name="files_families")
      */
@@ -60,7 +62,7 @@ class File
     }
 
     /**
-     * Get id
+     * Get id.
      *
      * @return int
      */
@@ -70,7 +72,7 @@ class File
     }
 
     /**
-     * Set title
+     * Set title.
      *
      * @param string $title
      *
@@ -84,7 +86,7 @@ class File
     }
 
     /**
-     * Get title
+     * Get title.
      *
      * @return string
      */
@@ -94,7 +96,7 @@ class File
     }
 
     /**
-     * Set path
+     * Set path.
      *
      * @param string $path
      *
@@ -108,7 +110,7 @@ class File
     }
 
     /**
-     * Get path
+     * Get path.
      *
      * @return string
      */
@@ -118,7 +120,7 @@ class File
     }
 
     /**
-     * Get the value of families
+     * Get the value of families.
      */
     public function getFamilies()
     {
@@ -126,9 +128,9 @@ class File
     }
 
     /**
-     * Add the family
+     * Add the family.
      *
-     * @return  self
+     * @return self
      */
     public function addFamily($family)
     {
@@ -139,17 +141,17 @@ class File
     }
 
     /**
-     * Get persons
-     */ 
+     * Get persons.
+     */
     public function getPersons()
     {
         return $this->persons;
     }
 
     /**
-     * Add the person
+     * Add the person.
      *
-     * @return  self
+     * @return self
      */
     public function addPerson($person)
     {

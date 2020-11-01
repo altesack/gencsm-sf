@@ -2,13 +2,12 @@
 
 namespace AppBundle\Entity;
 
-use Doctrine\ORM\Mapping as ORM;
-use AppBundle\Entity\FamilyEvent;
 use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Timestampable\Traits\TimestampableEntity;
 
 /**
- * Family
+ * Family.
  *
  * @ORM\Table(name="families")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\FamilyRepository")
@@ -27,14 +26,16 @@ class Family
     private $id;
 
     /**
-     * Hustband. Persons can be marries more than one time
+     * Hustband. Persons can be marries more than one time.
+     *
      * @ORM\ManyToOne(targetEntity="Person", inversedBy="husbandInFamilies")
      * @ORM\JoinColumn(name="husband_id", referencedColumnName="id", nullable=true)
      */
     private $husband;
 
     /**
-     * Wife. Persons can be marries more than one time
+     * Wife. Persons can be marries more than one time.
+     *
      * @ORM\ManyToOne(targetEntity="Person", inversedBy="wifeInFamilies")
      * @ORM\JoinColumn(name="wife_id", referencedColumnName="id", nullable=true)
      */
@@ -42,18 +43,21 @@ class Family
 
     /**
      * One family can have many children.
+     *
      * @ORM\OneToMany(targetEntity="Person", mappedBy="bornInFamily")
      */
     private $children;
 
     /**
      * Family events.
+     *
      * @ORM\OneToMany(targetEntity="FamilyEvent", mappedBy="family")
      */
     private $events;
 
     /**
      * Files.
+     *
      * @ORM\ManyToMany(targetEntity="File", mappedBy="persons")
      */
     private $files;
@@ -66,7 +70,7 @@ class Family
     }
 
     /**
-     * Get id
+     * Get id.
      *
      * @return int
      */
@@ -76,7 +80,7 @@ class Family
     }
 
     /**
-     * Set husband
+     * Set husband.
      *
      * @param string $husband
      *
@@ -90,7 +94,7 @@ class Family
     }
 
     /**
-     * Get husband
+     * Get husband.
      *
      * @return string
      */
@@ -100,7 +104,7 @@ class Family
     }
 
     /**
-     * Set wife
+     * Set wife.
      *
      * @param string $wife
      *
@@ -114,7 +118,7 @@ class Family
     }
 
     /**
-     * Get wife
+     * Get wife.
      *
      * @return string
      */
@@ -134,7 +138,7 @@ class Family
     /**
      * Add children.
      *
-     * @return  self
+     * @return self
      */
     public function addChildren(Person $person)
     {
@@ -154,7 +158,7 @@ class Family
     /**
      * Add file.
      *
-     * @return  self
+     * @return self
      */
     public function addFiles(File $file)
     {
@@ -172,9 +176,9 @@ class Family
     }
 
     /**
-     * Add event
+     * Add event.
      *
-     * @return  self
+     * @return self
      */
     public function addEvent(FamilyEvent $event)
     {

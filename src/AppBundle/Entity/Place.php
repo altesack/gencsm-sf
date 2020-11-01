@@ -6,7 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Timestampable\Traits\TimestampableEntity;
 
 /**
- * Place
+ * Place.
  *
  * @ORM\Table(name="places")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\PlaceRepository")
@@ -31,9 +31,8 @@ class Place
      */
     private $title;
 
-
     /**
-     * Get id
+     * Get id.
      *
      * @return int
      */
@@ -43,7 +42,7 @@ class Place
     }
 
     /**
-     * Set title
+     * Set title.
      *
      * @param string $title
      *
@@ -57,7 +56,7 @@ class Place
     }
 
     /**
-     * Get title
+     * Get title.
      *
      * @return string
      */
@@ -66,4 +65,3 @@ class Place
         return $this->title;
     }
 }
-

@@ -1,7 +1,6 @@
 <?php
-namespace AppBundle\Normalizer;
 
-use AppBundle\Normalizer\AbstractArrayNormalizer;
+namespace AppBundle\Normalizer;
 
 class FileArrayNormalizer extends AbstractArrayNormalizer
 {
