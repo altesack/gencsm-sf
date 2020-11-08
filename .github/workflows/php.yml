@@ -47,7 +47,7 @@ jobs:
           php phpcs.phar --version
           pwd
           cat phpcs.xml
-          php phpcs.phar -vv
+          php phpcs.phar
 
       - uses: tinovyatkin/action-php-codesniffer@v1
         with:
