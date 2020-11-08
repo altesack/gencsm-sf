@@ -10,7 +10,7 @@ php:
 
 before_script:
   - composer install --prefer-dist --dev
-
+  - cp .env.test .env
 script:
   - vendor/bin/simple-phpunit
   - vendor/bin/phpcs --standard=PSR2 -n bin/ config/ public/ src/ tests/
