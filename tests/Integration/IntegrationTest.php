@@ -19,6 +19,7 @@ class IntegrationTest extends AbstractIntegrationTest
 
     /**
      * Trying to get the person #1
+     *
      * @throws \GuzzleHttp\Exception\GuzzleException
      * @return void
      */
@@ -39,6 +40,7 @@ class IntegrationTest extends AbstractIntegrationTest
 
     /**
      * Trying to get the family #1
+     *
      * @throws \GuzzleHttp\Exception\GuzzleException
      * @return void
      */
