@@ -3,7 +3,6 @@
 namespace App\Normalizer;
 
 use App\Entity\Family;
-use Symfony\Component\Serializer\Exception\ExceptionInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
 class FamilyNormalizer implements NormalizerInterface
