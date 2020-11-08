@@ -6,6 +6,7 @@ class IntegrationTest extends AbstractIntegrationTest
 {
     /**
      * Homepage should return 404.
+     *
      * @throws \GuzzleHttp\Exception\GuzzleException
      *
      * @return void
@@ -19,8 +20,9 @@ class IntegrationTest extends AbstractIntegrationTest
 
     /**
      * Trying to get the person #1.
+     *
      * @throws \GuzzleHttp\Exception\GuzzleException
-     * 
+     *
      * @return void
      */
     public function testTestPersonShouldBe()
@@ -39,9 +41,10 @@ class IntegrationTest extends AbstractIntegrationTest
     }
 
     /**
-     * Trying to get the family #1
+     * Trying to get the family #1.
      *
      * @throws \GuzzleHttp\Exception\GuzzleException
+     *
      * @return void
      */
     public function testTestFamilyShouldBe()
