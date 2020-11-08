@@ -8,7 +8,10 @@
     <arg name="colors"/>
     <arg name="extensions" value="php"/>
 
-    <rule ref="PSR2"/>
+    <rule ref="PSR2">
+        <exclude name="PEAR.Commenting.FileComment.Missing" />
+        <exclude name="PEAR.Commenting.ClassComment.Missing" />
+    </rule>
 
     <file>src/</file>
     <file>tests/</file>
