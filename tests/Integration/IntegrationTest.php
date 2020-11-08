@@ -2,13 +2,11 @@
 
 namespace App\Tests\Integration;
 
-/**
- * Class IntegrationTest.
- */
 class IntegrationTest extends AbstractIntegrationTest
 {
     /**
-     * Homepage should return
+     * Homepage should return 404
+     *
      * @throws \GuzzleHttp\Exception\GuzzleException
      * @return void
      */
