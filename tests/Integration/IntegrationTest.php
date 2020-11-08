@@ -5,9 +5,9 @@ namespace App\Tests\Integration;
 class IntegrationTest extends AbstractIntegrationTest
 {
     /**
-     * Homepage should return 404
-     *
+     * Homepage should return 404.
      * @throws \GuzzleHttp\Exception\GuzzleException
+     *
      * @return void
      */
     public function testHomePageShouldNotExist()
@@ -18,9 +18,9 @@ class IntegrationTest extends AbstractIntegrationTest
     }
 
     /**
-     * Trying to get the person #1
-     *
+     * Trying to get the person #1.
      * @throws \GuzzleHttp\Exception\GuzzleException
+     * 
      * @return void
      */
     public function testTestPersonShouldBe()
