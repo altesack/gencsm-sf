@@ -2,8 +2,16 @@
 
 namespace App\Tests\Integration;
 
+/**
+ * Class IntegrationTest.
+ */
 class IntegrationTest extends AbstractIntegrationTest
 {
+    /**
+     * Homepage should return
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @return void
+     */
     public function testHomePageShouldNotExist()
     {
         $response = self::getClient()->get('/', []);
@@ -14,6 +22,7 @@ class IntegrationTest extends AbstractIntegrationTest
     /**
      * Trying to get the person #1
      * @throws \GuzzleHttp\Exception\GuzzleException
+     * @return void
      */
     public function testTestPersonShouldBe()
     {
@@ -33,6 +42,7 @@ class IntegrationTest extends AbstractIntegrationTest
     /**
      * Trying to get the family #1
      * @throws \GuzzleHttp\Exception\GuzzleException
+     * @return void
      */
     public function testTestFamilyShouldBe()
     {
