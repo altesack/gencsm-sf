@@ -15,9 +15,12 @@ class ApiController extends AbstractController
 {
     /**
      * @Route("api/person/{id}")
+     *
      * @param Person $person
-     * @return JsonResponse
+     *
      * @throws ExceptionInterface
+     *
+     * @return JsonResponse
      */
     public function getPersonAction(Person $person)
     {
@@ -28,9 +31,12 @@ class ApiController extends AbstractController
 
     /**
      * @Route("api/family/{id}")
+     *
      * @param Family $family
-     * @return JsonResponse
+     *
      * @throws ExceptionInterface
+     *
+     * @return JsonResponse
      */
     public function getFamilyAction(Family $family)
     {

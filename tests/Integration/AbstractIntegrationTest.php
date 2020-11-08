@@ -23,7 +23,7 @@ abstract class AbstractIntegrationTest extends WebTestCase
     public static function tearDownAfterClass(): void
     {
         self::$serverProcess->stop();
-        echo PHP_EOL . "Integration test server stopped at " . self::getBaseUrl() . PHP_EOL;
+        echo PHP_EOL.'Integration test server stopped at '.self::getBaseUrl().PHP_EOL;
         self::$serverProcess->wait();
         self::$isRunning = false;
     }
@@ -34,26 +34,26 @@ abstract class AbstractIntegrationTest extends WebTestCase
             sleep(1);
         }
         self::$isRunning = true;
-        self::$host = "localhost:" . self::$port++;
-        self::$serverProcess = new Process(["php", "-S", self::$host, "-t", dirname(dirname(__DIR__)) . "/public/"]);
+        self::$host = 'localhost:'.self::$port++;
+        self::$serverProcess = new Process(['php', '-S', self::$host, '-t', dirname(dirname(__DIR__)).'/public/']);
         self::$serverProcess->start();
 
         usleep(500000); //wait for server to get going
-        echo PHP_EOL . "Integration test server started at " . self::getBaseUrl() . PHP_EOL;
+        echo PHP_EOL.'Integration test server started at '.self::getBaseUrl().PHP_EOL;
     }
 
     public static function getBaseUrl()
     {
-        return "http://" . self::$host . "/";
+        return 'http://'.self::$host.'/';
     }
 
     public static function getClient()
     {
         return new Client([
-            'base_uri' => self::getBaseUrl(),
-            'http_errors' => false,
+            'base_uri'        => self::getBaseUrl(),
+            'http_errors'     => false,
             'connect_timeout' => 2,
-            'timeout' => 10,
+            'timeout'         => 10,
             'allow_redirects' => false,
         ]);
     }

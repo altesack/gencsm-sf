@@ -11,8 +11,8 @@ class IntegrationTest extends AbstractIntegrationTest
         $this->assertEquals(404, $response->getStatusCode());
     }
 
-// TODO move old behat "get a person" test here
-//Feature: Person feature
+    // TODO move old behat "get a person" test here
+    //Feature: Person feature
 //    Scenario: Get a person
 //        When I send a "GET" request to "/api/person/1"
 //        Then the response status code should be 200
@@ -31,8 +31,8 @@ class IntegrationTest extends AbstractIntegrationTest
         $this->assertEquals(200, $response->getStatusCode());
     }
 
-// TODO move old behat "get a family" test here
-//Feature: Family feature
+    // TODO move old behat "get a family" test here
+    //Feature: Family feature
 //    Scenario: Get a person
 //        When I send a "GET" request to "/api/family/1"
 //        Then the response status code should be 200
