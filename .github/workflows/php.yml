@@ -13,8 +13,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-        with:
-          fetch-depth: 0 # important! (came from phpcs)
+#        with:
+#          fetch-depth: 0 # important! (came from phpcs)
 
       - name: Validate composer.json and composer.lock
         run: composer validate
@@ -41,25 +41,28 @@ jobs:
       #PHP CODE SNIFFER
       # we may use whatever way to install phpcs, just specify the path on the next step
       # however, curl seems to be the fastest
-      - name: Install PHP_CodeSniffer
-        run: |
-          curl -OL https://squizlabs.github.io/PHP_CodeSniffer/phpcs.phar
-          php phpcs.phar --version
-          pwd
-          cat phpcs.xml
-          php phpcs.phar
-
-      - uses: tinovyatkin/action-php-codesniffer@v1
-        with:
-          files: "**.php" # you may customize glob as needed
-          phpcs_path: php phpcs.phar
-          standard: phpcs.xml
+#      - name: Install PHP_CodeSniffer
+#        run: |
+#          curl -OL https://squizlabs.github.io/PHP_CodeSniffer/phpcs.phar
+#          php phpcs.phar --version
+#          pwd
+#          cat phpcs.xml
+#          php phpcs.phar
+#
+#      - uses: tinovyatkin/action-php-codesniffer@v1
+#        with:
+#          files: "**.php" # you may customize glob as needed
+#          phpcs_path: php phpcs.phar
+#          standard: phpcs.xml
 
       # PHP UNIT TEST
       - uses: php-actions/composer@v1
 
       - name: Set test environment
         run: cp .env.test .env
+
+      - name: PHPCS
+        run: vendor/bin/phpcs
 
       - name: PHPUnit
         uses: chindit/actions-phpunit-symfony@master
