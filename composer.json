@@ -45,6 +45,8 @@
     },
     "require-dev": {
         "guzzlehttp/guzzle": "^7.2",
+        "phpmd/phpmd": "^2.9",
+        "phpunit/php-code-coverage": "8.0.0",
         "squizlabs/php_codesniffer": "^3.5",
         "symfony/browser-kit": "^5.1",
         "symfony/css-selector": "^5.1",

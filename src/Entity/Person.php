@@ -54,6 +54,13 @@ class Person
     private $description;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="gedcom_id", type="string", length=255, nullable=true)
+     */
+    private $gedcomId;
+
+    /**
      * Many persons could be born in the one family.
      *
      * @ORM\ManyToOne(targetEntity="Family", inversedBy="children")
@@ -298,4 +305,26 @@ class Person
 
         return $this;
     }
+
+    /**
+     * @return string
+     */
+    public function getGedcomId(): string
+    {
+        return $this->gedcomId;
+    }
+
+    /**
+     * @param string $gedcomId
+     *
+     * @return Person
+     */
+    public function setGedcomId(string $gedcomId)
+    {
+        $this->gedcomId = $gedcomId;
+
+        return $this;
+    }
+
+
 }
