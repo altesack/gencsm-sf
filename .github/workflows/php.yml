@@ -30,6 +30,7 @@ jobs:
         if: steps.composer-cache.outputs.cache-hit != 'true'
         run: composer install --prefer-dist --no-progress --no-suggest
 
+      # PHP UNIT TEST
       - uses: php-actions/composer@v1
 
       - name: Set test environment
@@ -40,6 +41,3 @@ jobs:
 
       - name: PHPUnit
         uses: chindit/actions-phpunit-symfony@master
-
-#      - name: Codecov
-#        uses: codecov/codecov-action@v1.0.14
