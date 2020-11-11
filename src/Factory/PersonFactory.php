@@ -76,7 +76,7 @@ class PersonFactory
     }
 
     /**
-     * @param array $attr
+     * @param array  $attr
      * @param Person $person
      */
     protected function addAttributesToPerson(array $attr, Person $person): void

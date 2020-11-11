@@ -1,6 +1,5 @@
 <?php
 
-
 namespace App\Factory;
 
 use App\Entity\Place;
@@ -23,6 +22,7 @@ class PlaceFactory
 
         return $place;
     }
+
     public function findOrCreatePlace(string $title = null)
     {
         if (!$title) {

@@ -2,12 +2,6 @@
 
 namespace App\Command;
 
-use App\Entity\Family;
-use App\Entity\FamilyEvent;
-use App\Entity\File;
-use App\Entity\Person;
-use App\Entity\PersonsEvent;
-use App\Entity\Place;
 use App\Factory\FamilyFactory;
 use App\Factory\PersonFactory;
 use PhpGedcom\Parser;

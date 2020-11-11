@@ -1,8 +1,6 @@
 <?php
 
-
 namespace App\Factory;
-
 
 use App\Entity\Family;
 use App\Entity\File;
