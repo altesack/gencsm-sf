@@ -41,5 +41,5 @@ jobs:
       - name: PHPUnit
         uses: chindit/actions-phpunit-symfony@master
 
-      - name: Codecov
-        uses: codecov/codecov-action@v1.0.14
+#      - name: Codecov
+#        uses: codecov/codecov-action@v1.0.14

@@ -15,6 +15,7 @@ class FileFactory
     {
         $this->em = $em;
     }
+
     public function addFileToPerson(Person $person, string $path, string $title)
     {
         $file = $this->findOrCreateFile($path, $title);
