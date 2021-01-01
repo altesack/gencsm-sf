@@ -64,7 +64,7 @@ abstract class FixtureAwareTestCase extends WebTestCase
         if (!$this->fixtureLoader) {
             $this->fixtureLoader = new ContainerAwareLoader(static::$kernel->getContainer());
         }
-        
+
         return $this->fixtureLoader;
     }
 }
