@@ -40,7 +40,7 @@ class FileFactory
      *
      * @return File
      */
-    protected function findOrCreateFile(string $path, string $title)
+    public function findOrCreateFile(string $path, string $title)
     {
         $file = $this->em->getRepository(File::class)->findOneByPath($path);
         if (!$file) {

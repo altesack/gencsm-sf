@@ -15,7 +15,7 @@ class PersonsEvent extends AbstractEvent
     /**
      * Person.
      *
-     * @ORM\ManyToOne(targetEntity="Person", inversedBy="events")
+     * @ORM\ManyToOne(targetEntity="Person", inversedBy="events", cascade={"persist"})
      * @ORM\JoinColumn(name="person_id", referencedColumnName="id", nullable=true)
      */
     private $person;
@@ -36,6 +36,7 @@ class PersonsEvent extends AbstractEvent
     public function setPerson(Person $person)
     {
         $this->person = $person;
+        $person->addEvent($this);
 
         return $this;
     }

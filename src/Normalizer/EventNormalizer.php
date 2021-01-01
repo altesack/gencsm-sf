@@ -16,7 +16,7 @@ class EventNormalizer implements NormalizerInterface
         return [
             'id'          => $object->getId(),
             'title'       => $object->getTitle(),
-            'place'       => $object->getPlace()->getTitle(),
+            'place'       => $object->getPlace() ? $object->getPlace()->getTitle() : null,
             'date'        => $object->getDate(),
             'description' => $object->getDescription(),
         ];

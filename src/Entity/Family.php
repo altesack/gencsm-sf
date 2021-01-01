@@ -28,7 +28,7 @@ class Family
     /**
      * Hustband. Persons can be marries more than one time.
      *
-     * @ORM\ManyToOne(targetEntity="Person", inversedBy="husbandInFamilies")
+     * @ORM\ManyToOne(targetEntity="Person", inversedBy="husbandInFamilies", cascade={"persist"})
      * @ORM\JoinColumn(name="husband_id", referencedColumnName="id", nullable=true)
      */
     private $husband;
@@ -36,7 +36,7 @@ class Family
     /**
      * Wife. Persons can be marries more than one time.
      *
-     * @ORM\ManyToOne(targetEntity="Person", inversedBy="wifeInFamilies")
+     * @ORM\ManyToOne(targetEntity="Person", inversedBy="wifeInFamilies", cascade={"persist"})
      * @ORM\JoinColumn(name="wife_id", referencedColumnName="id", nullable=true)
      */
     private $wife;
@@ -142,7 +142,10 @@ class Family
      */
     public function addChildren(Person $person)
     {
-        $this->children[] = $person;
+        if (!$this->children->contains($person)) {
+            $this->children[] = $person;
+            $person->setBornInFamily($this);
+        }
 
         return $this;
     }
@@ -160,7 +163,7 @@ class Family
      *
      * @return self
      */
-    public function addFiles(File $file)
+    public function addFile(File $file)
     {
         $this->files[] = $file;
 
@@ -182,7 +185,10 @@ class Family
      */
     public function addEvent(FamilyEvent $event)
     {
-        $this->events[] = $event;
+        if (!$this->events->contains($event)) {
+            $this->events[] = $event;
+            $event->setFamily($this);
+        }
 
         return $this;
     }
