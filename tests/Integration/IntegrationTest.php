@@ -2,38 +2,39 @@
 
 namespace App\Tests\Integration;
 
-class IntegrationTest extends AbstractIntegrationTest
+//use App\Tests\Traits\CreateTestDataTrait;
+
+use App\Tests\CreateTestDataTestCase;
+
+class IntegrationTest extends CreateTestDataTestCase
 {
+//    use CreateTestDataTrait;
+
     /**
      * Homepage should return 404.
-     *
-     * @throws \GuzzleHttp\Exception\GuzzleException
      *
      * @return void
      */
     public function testHomePageShouldNotExist()
     {
-        $response = self::getClient()->get('/', []);
-
+        self::$client->request('GET', '/');
+        $response = self::$client->getResponse();
         $this->assertEquals(404, $response->getStatusCode());
     }
 
     /**
      * Trying to get the person #1.
      *
-     * @throws \GuzzleHttp\Exception\GuzzleException
-     *
      * @return void
      */
     public function testTestPersonShouldBe()
     {
-        $response = self::getClient()->get(
-            '/api/person/1',
-            ['http_errors' => false]
-        );
+        self::$client->request('GET', '/api/person/1');
+        $response = self::$client->getResponse();
         $this->assertEquals(200, $response->getStatusCode());
 
-        $result = json_decode($response->getBody());
+        $result = json_decode($response->getContent());
+        $this->assertObjectHasAttribute('id', $result);
         $this->assertEquals(1, $result->id);
         $this->assertEquals('Veit', $result->name);
         $this->assertEquals('Bach', $result->surname);
@@ -49,17 +50,17 @@ class IntegrationTest extends AbstractIntegrationTest
      */
     public function testTestFamilyShouldBe()
     {
-        $response = self::getClient()->get(
-            '/api/family/1',
-            ['http_errors' => false]
-        );
-        $this->assertEquals(200, $response->getStatusCode());
+        self::$client->request('GET', '/api/family/1');
+        $response = self::$client->getResponse();
+        $result = json_decode($response->getContent());
 
-        $result = json_decode($response->getBody());
+        $this->assertEquals(200, $response->getStatusCode());
+        $this->assertObjectHasAttribute('id', $result);
         $this->assertEquals(1, $result->id);
         $this->assertEquals(1, $result->husband->id);
         $this->assertEquals('Veit', $result->husband->name);
         $this->assertEquals('Bach', $result->husband->surname);
+        $this->assertEquals(1, count($result->children));
         $this->assertEquals(2, $result->children[0]->id);
         $this->assertEquals('Johannes Hans', $result->children[0]->name);
         $this->assertEquals('Bach', $result->children[0]->surname);

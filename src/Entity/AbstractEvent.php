@@ -58,11 +58,11 @@ class AbstractEvent
     /**
      * Set place.
      *
-     * @param string $place
+     * @param Place|null $place
      *
-     * @return Event
+     * @return AbstractEvent
      */
-    public function setPlace($place)
+    public function setPlace(Place $place = null)
     {
         $this->place = $place;
 
@@ -82,11 +82,11 @@ class AbstractEvent
     /**
      * Set date.
      *
-     * @param string $date
+     * @param string|null $date
      *
-     * @return Event
+     * @return AbstractEvent
      */
-    public function setDate($date)
+    public function setDate($date = null)
     {
         $this->date = $date;
 
@@ -108,7 +108,7 @@ class AbstractEvent
      *
      * @param string $title
      *
-     * @return Event
+     * @return AbstractEvent
      */
     public function setTitle($title)
     {
@@ -132,7 +132,7 @@ class AbstractEvent
      *
      * @param string $description
      *
-     * @return Event
+     * @return AbstractEvent
      */
     public function setDescription($description)
     {

@@ -54,6 +54,13 @@ class Person
     private $description;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="gedcom_id", type="string", length=255, nullable=true)
+     */
+    private $gedcomId;
+
+    /**
      * Many persons could be born in the one family.
      *
      * @ORM\ManyToOne(targetEntity="Family", inversedBy="children")
@@ -85,7 +92,7 @@ class Person
     /**
      * Family events.
      *
-     * @ORM\OneToMany(targetEntity="FamilyEvent", mappedBy="family")
+     * @ORM\OneToMany(targetEntity="PersonsEvent", mappedBy="person")
      */
     private $events;
 
@@ -236,7 +243,10 @@ class Person
      */
     public function addHusbandInFamilies(Family $family)
     {
-        $this->husbandInFamilies[] = $family;
+        if (!$this->husbandInFamilies->contains($family)) {
+            $this->husbandInFamilies[] = $family;
+            $family->setHusband($this);
+        }
 
         return $this;
     }
@@ -254,7 +264,10 @@ class Person
      */
     public function addWifeInFamilies(Family $family)
     {
-        $this->wifeInFamilies[] = $family;
+        if (!$this->wifeInFamilies->contains($family)) {
+            $this->wifeInFamilies[] = $family;
+            $family->setWife($this);
+        }
 
         return $this;
     }
@@ -272,7 +285,7 @@ class Person
      *
      * @return self
      */
-    public function addFiles(File $file)
+    public function addFile(File $file)
     {
         $this->files[] = $file;
 
@@ -294,7 +307,30 @@ class Person
      */
     public function addEvent(PersonsEvent $event)
     {
-        $this->events[] = $event;
+        if (!$this->events->contains($event)) {
+            $this->events[] = $event;
+            $event->setPerson($this);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getGedcomId(): string
+    {
+        return $this->gedcomId;
+    }
+
+    /**
+     * @param string $gedcomId
+     *
+     * @return Person
+     */
+    public function setGedcomId(string $gedcomId)
+    {
+        $this->gedcomId = $gedcomId;
 
         return $this;
     }

@@ -42,7 +42,7 @@ class File
     /**
      * Many Persons have Many files.
      *
-     * @ORM\ManyToMany(targetEntity="Person", inversedBy="files")
+     * @ORM\ManyToMany(targetEntity="Person", inversedBy="files", cascade={"persist"})
      * @ORM\JoinTable(name="files_persons")
      */
     private $persons;
@@ -50,7 +50,7 @@ class File
     /**
      * Many Families have Many files.
      *
-     * @ORM\ManyToMany(targetEntity="Family", inversedBy="files")
+     * @ORM\ManyToMany(targetEntity="Family", inversedBy="files", cascade={"persist"})
      * @ORM\JoinTable(name="files_families")
      */
     private $families;

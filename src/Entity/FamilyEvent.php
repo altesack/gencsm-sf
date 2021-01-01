@@ -15,7 +15,7 @@ class FamilyEvent extends AbstractEvent
     /**
      * Family.
      *
-     * @ORM\ManyToOne(targetEntity="Family", inversedBy="events")
+     * @ORM\ManyToOne(targetEntity="Family", inversedBy="events", cascade={"persist"})
      * @ORM\JoinColumn(name="family_id", referencedColumnName="id", nullable=true)
      */
     private $family;
@@ -36,6 +36,7 @@ class FamilyEvent extends AbstractEvent
     public function setFamily(Family $family)
     {
         $this->family = $family;
+        $family->addEvent($this);
 
         return $this;
     }
