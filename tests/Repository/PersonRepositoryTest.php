@@ -3,12 +3,9 @@
 namespace App\Tests\Repository;
 
 use App\Entity\Person;
-use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
-
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 
 class PersonRepositoryTest extends KernelTestCase
-//class BaseTestCase extends WebTestCase
 {
     /**
      * @var \Doctrine\ORM\EntityManager
@@ -28,10 +25,9 @@ class PersonRepositoryTest extends KernelTestCase
     {
         $person = $this->entityManager
             ->getRepository(Person::class)
-            ->findOneBy(['givn' => 'Veit'])
-        ;
+            ->findOneBy(['givn' => 'Veit']);
 
-        $this->assertSame("Bach", $person->getSurn());
+        $this->assertSame('Bach', $person->getSurn());
     }
 
     protected function tearDown(): void

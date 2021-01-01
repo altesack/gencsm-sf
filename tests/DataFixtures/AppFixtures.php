@@ -11,7 +11,7 @@ class AppFixtures extends Fixture
 {
     public function load(ObjectManager $manager)
     {
-        $person1=(new Person())->setGivn('Veit')->setSurn('Bach')->setSex('m');
+        $person1 = (new Person())->setGivn('Veit')->setSurn('Bach')->setSex('m');
         $person2 = (new Person())->setGivn('Johannes Hans')->setSurn('Bach')->setSex('m');
         $family = (new Family())->setHusband($person1)->addChildren($person2);
         $manager->persist($person1);

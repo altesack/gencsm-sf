@@ -13,11 +13,8 @@ class IntegrationTest extends CreateTestDataTestCase
     /**
      * Homepage should return 404.
      *
-     * @throws \GuzzleHttp\Exception\GuzzleException
-     *
      * @return void
      */
-
     public function testHomePageShouldNotExist()
     {
         self::$client->request('GET', '/');
@@ -28,13 +25,10 @@ class IntegrationTest extends CreateTestDataTestCase
     /**
      * Trying to get the person #1.
      *
-     * @throws \GuzzleHttp\Exception\GuzzleException
-     *
      * @return void
      */
     public function testTestPersonShouldBe()
     {
-
         self::$client->request('GET', '/api/person/1');
         $response = self::$client->getResponse();
         $this->assertEquals(200, $response->getStatusCode());

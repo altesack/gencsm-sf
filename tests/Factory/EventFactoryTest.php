@@ -7,7 +7,6 @@ use App\Entity\Person;
 use App\Factory\EventFactory;
 use App\Tests\CreateTestDataTestCase;
 
-
 class EventFactoryTest extends CreateTestDataTestCase
 {
     public function testCreatePersonsEvent()

@@ -1,5 +1,7 @@
 <?php
+
 namespace App\Tests;
+
 use Doctrine\Common\DataFixtures\Executor\ORMExecutor;
 use Doctrine\Common\DataFixtures\FixtureInterface;
 use Doctrine\Common\DataFixtures\Purger\ORMPurger;
@@ -8,7 +10,6 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 /**
  * Class FixtureAwareTestCase
- * @package App\Tests
  */
 abstract class FixtureAwareTestCase extends WebTestCase
 {
@@ -16,14 +17,17 @@ abstract class FixtureAwareTestCase extends WebTestCase
      * @var ORMExecutor
      */
     private $fixtureExecutor;
+
     /**
      * @var ContainerAwareLoader
      */
     private $fixtureLoader;
+
     protected function setUp()
     {
         static::bootKernel();
     }
+
     /**
      * Adds a new fixture to be loaded.
      */
@@ -31,6 +35,7 @@ abstract class FixtureAwareTestCase extends WebTestCase
     {
         $this->getFixtureLoader()->addFixture($fixture);
     }
+
     /**
      * Executes all the fixtures that have been loaded so far.
      */
@@ -38,9 +43,10 @@ abstract class FixtureAwareTestCase extends WebTestCase
     {
         $this->getFixtureExecutor()->execute($this->getFixtureLoader()->getFixtures());
     }
+
     /**
      * Get the class responsible for loading the data fixtures.
-     * And this will also load in the ORM Purger which purges the database before loading in the data fixtures
+     * And this will also load in the ORM Purger which purges the database before loading in the data fixtures.
      */
     private function getFixtureExecutor(): ORMExecutor
     {
@@ -51,8 +57,9 @@ abstract class FixtureAwareTestCase extends WebTestCase
         }
         return $this->fixtureExecutor;
     }
+
     /**
-     * Get the Doctrine data fixtures loader
+     * Get the Doctrine data fixtures loader.
      */
     private function getFixtureLoader(): ContainerAwareLoader
     {

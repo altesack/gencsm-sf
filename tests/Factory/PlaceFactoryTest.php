@@ -5,7 +5,6 @@ namespace App\Tests\Factory;
 use App\Factory\PlaceFactory;
 use App\Tests\CreateTestDataTestCase;
 
-
 class PlaceFactoryTest extends CreateTestDataTestCase
 {
     public function testCreatePlace()
