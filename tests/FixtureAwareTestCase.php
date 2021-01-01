@@ -8,9 +8,6 @@ use Doctrine\Common\DataFixtures\Purger\ORMPurger;
 use Symfony\Bridge\Doctrine\DataFixtures\ContainerAwareLoader;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
-/**
- * Class FixtureAwareTestCase
- */
 abstract class FixtureAwareTestCase extends WebTestCase
 {
     /**

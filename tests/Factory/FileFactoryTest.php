@@ -14,13 +14,13 @@ class FileFactoryTest extends CreateTestDataTestCase
         /** @var FileFactory $fileFactory */
         $fileFactory = self::$kernel->getContainer()->get('App\Factory\FileFactory');
 
-        $file = $fileFactory->findOrCreateFile("path/to/photo", 'Photo description');
+        $file = $fileFactory->findOrCreateFile('path/to/photo', 'Photo description');
         //Should create new object
         $this->assertEquals(1, $file->getId());
         $this->assertEquals('path/to/photo', $file->getPath());
         $this->assertEquals('Photo description', $file->getTitle());
 
-        $file = $fileFactory->findOrCreateFile("path/to/photo", 'Some other description');
+        $file = $fileFactory->findOrCreateFile('path/to/photo', 'Some other description');
         // Should find the same object
         $this->assertEquals(1, $file->getId());
         $this->assertEquals('path/to/photo', $file->getPath());
