@@ -52,6 +52,7 @@ abstract class FixtureAwareTestCase extends WebTestCase
             $entityManager = static::$kernel->getContainer()->get('doctrine')->getManager();
             $this->fixtureExecutor = new ORMExecutor($entityManager, new ORMPurger($entityManager));
         }
+
         return $this->fixtureExecutor;
     }
 
@@ -63,6 +64,7 @@ abstract class FixtureAwareTestCase extends WebTestCase
         if (!$this->fixtureLoader) {
             $this->fixtureLoader = new ContainerAwareLoader(static::$kernel->getContainer());
         }
+        
         return $this->fixtureLoader;
     }
 }
