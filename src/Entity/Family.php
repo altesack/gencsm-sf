@@ -5,7 +5,6 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
-use Doctrine\ORM\PersistentCollection;
 use Gedmo\Timestampable\Traits\TimestampableEntity;
 
 /**
@@ -88,6 +87,7 @@ class Family
      * Set husband.
      *
      * @param Person|null $husband
+     *
      * @return Family
      */
     public function setHusband(Person $husband = null): Family
@@ -111,6 +111,7 @@ class Family
      * Set wife.
      *
      * @param Person|null $wife
+     *
      * @return Family
      */
     public function setWife(Person $wife = null): Family
@@ -140,6 +141,7 @@ class Family
      * Add children.
      *
      * @param Person $person
+     *
      * @return self
      */
     public function addChildren(Person $person): Family
@@ -164,6 +166,7 @@ class Family
      * Add file.
      *
      * @param File $file
+     *
      * @return self
      */
     public function addFile(File $file): Family
@@ -185,6 +188,7 @@ class Family
      * Add event.
      *
      * @param FamilyEvent $event
+     *
      * @return self
      */
     public function addEvent(FamilyEvent $event): Family

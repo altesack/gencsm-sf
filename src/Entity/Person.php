@@ -223,6 +223,7 @@ class Person
      * Set born family.
      *
      * @param Family $bornInFamily
+     *
      * @return self
      */
     public function setBornInFamily(Family $bornInFamily): Person
@@ -242,7 +243,9 @@ class Person
 
     /**
      * Add family where the person is husband.
+     *
      * @param Family $family
+     *
      * @return Person
      */
     public function addHusbandInFamilies(Family $family): Person
@@ -265,7 +268,9 @@ class Person
 
     /**
      * Add family where the person is wife.
+     *
      * @param Family $family
+     *
      * @return Person
      */
     public function addWifeInFamilies(Family $family): Person
@@ -290,6 +295,7 @@ class Person
      * Add file.
      *
      * @param File $file
+     *
      * @return self
      */
     public function addFile(File $file): Person
@@ -311,6 +317,7 @@ class Person
      * Add event.
      *
      * @param PersonsEvent $event
+     *
      * @return self
      */
     public function addEvent(PersonsEvent $event): Person
