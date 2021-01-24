@@ -22,7 +22,7 @@ class ApiController extends AbstractController
      *
      * @return JsonResponse
      */
-    public function getPersonAction(Person $person)
+    public function getPersonAction(Person $person): JsonResponse
     {
         $data = (new PersonNormalizer())->normalize($person);
 
@@ -38,7 +38,7 @@ class ApiController extends AbstractController
      *
      * @return JsonResponse
      */
-    public function getFamilyAction(Family $family)
+    public function getFamilyAction(Family $family): JsonResponse
     {
         $data = (new FamilyNormalizer())->normalize($family);
 

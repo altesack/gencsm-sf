@@ -31,9 +31,11 @@ class FamilyEvent extends AbstractEvent
     /**
      * Set many persons could be born in the one family.
      *
+     * @param Family $family
+     *
      * @return self
      */
-    public function setFamily(Family $family)
+    public function setFamily(Family $family): FamilyEvent
     {
         $this->family = $family;
         $family->addEvent($this);

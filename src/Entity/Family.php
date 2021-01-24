@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Timestampable\Traits\TimestampableEntity;
 
@@ -26,8 +27,9 @@ class Family
     private $id;
 
     /**
-     * Hustband. Persons can be marries more than one time.
+     * Husband. Persons can be marries more than one time.
      *
+     * @var Person
      * @ORM\ManyToOne(targetEntity="Person", inversedBy="husbandInFamilies", cascade={"persist"})
      * @ORM\JoinColumn(name="husband_id", referencedColumnName="id", nullable=true)
      */
@@ -36,6 +38,7 @@ class Family
     /**
      * Wife. Persons can be marries more than one time.
      *
+     * @var Person
      * @ORM\ManyToOne(targetEntity="Person", inversedBy="wifeInFamilies", cascade={"persist"})
      * @ORM\JoinColumn(name="wife_id", referencedColumnName="id", nullable=true)
      */
@@ -51,6 +54,7 @@ class Family
     /**
      * Family events.
      *
+     * @var FamilyEvent
      * @ORM\OneToMany(targetEntity="FamilyEvent", mappedBy="family")
      */
     private $events;
@@ -74,7 +78,7 @@ class Family
      *
      * @return int
      */
-    public function getId()
+    public function getId(): int
     {
         return $this->id;
     }
@@ -82,11 +86,11 @@ class Family
     /**
      * Set husband.
      *
-     * @param string $husband
+     * @param Person|null $husband
      *
      * @return Family
      */
-    public function setHusband($husband)
+    public function setHusband(Person $husband = null): Family
     {
         $this->husband = $husband;
 
@@ -96,9 +100,9 @@ class Family
     /**
      * Get husband.
      *
-     * @return string
+     * @return Person
      */
-    public function getHusband()
+    public function getHusband(): ?Person
     {
         return $this->husband;
     }
@@ -106,11 +110,11 @@ class Family
     /**
      * Set wife.
      *
-     * @param string $wife
+     * @param Person|null $wife
      *
      * @return Family
      */
-    public function setWife($wife)
+    public function setWife(Person $wife = null): Family
     {
         $this->wife = $wife;
 
@@ -119,10 +123,8 @@ class Family
 
     /**
      * Get wife.
-     *
-     * @return string
      */
-    public function getWife()
+    public function getWife(): ?Person
     {
         return $this->wife;
     }
@@ -130,7 +132,7 @@ class Family
     /**
      * Get children.
      */
-    public function getChildren()
+    public function getChildren(): Collection
     {
         return $this->children;
     }
@@ -138,9 +140,11 @@ class Family
     /**
      * Add children.
      *
+     * @param Person $person
+     *
      * @return self
      */
-    public function addChildren(Person $person)
+    public function addChildren(Person $person): Family
     {
         if (!$this->children->contains($person)) {
             $this->children[] = $person;
@@ -153,7 +157,7 @@ class Family
     /**
      * Get files.
      */
-    public function getFiles()
+    public function getFiles(): Collection
     {
         return $this->files;
     }
@@ -161,9 +165,11 @@ class Family
     /**
      * Add file.
      *
+     * @param File $file
+     *
      * @return self
      */
-    public function addFile(File $file)
+    public function addFile(File $file): Family
     {
         $this->files[] = $file;
 
@@ -181,9 +187,11 @@ class Family
     /**
      * Add event.
      *
+     * @param FamilyEvent $event
+     *
      * @return self
      */
-    public function addEvent(FamilyEvent $event)
+    public function addEvent(FamilyEvent $event): Family
     {
         if (!$this->events->contains($event)) {
             $this->events[] = $event;

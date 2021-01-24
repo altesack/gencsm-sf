@@ -50,7 +50,7 @@ class AbstractEvent
      *
      * @return int
      */
-    public function getId()
+    public function getId(): int
     {
         return $this->id;
     }
@@ -62,7 +62,7 @@ class AbstractEvent
      *
      * @return AbstractEvent
      */
-    public function setPlace(Place $place = null)
+    public function setPlace(Place $place = null): AbstractEvent
     {
         $this->place = $place;
 
@@ -72,9 +72,9 @@ class AbstractEvent
     /**
      * Get place.
      *
-     * @return string
+     * @return Place|null
      */
-    public function getPlace()
+    public function getPlace(): ?Place
     {
         return $this->place;
     }
@@ -86,7 +86,7 @@ class AbstractEvent
      *
      * @return AbstractEvent
      */
-    public function setDate($date = null)
+    public function setDate($date = null): AbstractEvent
     {
         $this->date = $date;
 
@@ -98,7 +98,7 @@ class AbstractEvent
      *
      * @return string
      */
-    public function getDate()
+    public function getDate(): string
     {
         return $this->date;
     }
@@ -106,11 +106,11 @@ class AbstractEvent
     /**
      * Set title.
      *
-     * @param string $title
+     * @param string|null $title
      *
      * @return AbstractEvent
      */
-    public function setTitle($title)
+    public function setTitle(string $title = null): AbstractEvent
     {
         $this->title = $title;
 
@@ -122,7 +122,7 @@ class AbstractEvent
      *
      * @return string
      */
-    public function getTitle()
+    public function getTitle(): string
     {
         return $this->title;
     }
@@ -130,11 +130,11 @@ class AbstractEvent
     /**
      * Set description.
      *
-     * @param string $description
+     * @param string|null $description
      *
      * @return AbstractEvent
      */
-    public function setDescription($description)
+    public function setDescription(string $description = null): AbstractEvent
     {
         $this->description = $description;
 
@@ -144,9 +144,9 @@ class AbstractEvent
     /**
      * Get description.
      *
-     * @return string
+     * @return string|null
      */
-    public function getDescription()
+    public function getDescription(): ?string
     {
         return $this->description;
     }

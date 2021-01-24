@@ -4,6 +4,7 @@ namespace App\Factory;
 
 use App\Entity\Family;
 use App\Entity\Person;
+use App\Repository\PersonRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use PhpGedcom\Record\Fam;
 use PhpGedcom\Record\Fam\Even;
@@ -13,12 +14,14 @@ class FamilyFactory
     private $em;
     private $placeFactory;
     private $eventFactory;
+    private $personRepository;
 
-    public function __construct(EntityManagerInterface $em, PlaceFactory $placeFactory, EventFactory $eventFactory)
+    public function __construct(EntityManagerInterface $em, PlaceFactory $placeFactory, EventFactory $eventFactory, PersonRepository $personRepository)
     {
         $this->em = $em;
         $this->placeFactory = $placeFactory;
         $this->eventFactory = $eventFactory;
+        $this->personRepository = $personRepository;
     }
 
     public function createFamily(Person $husband = null, Person $wife = null)
@@ -98,7 +101,6 @@ class FamilyFactory
      */
     protected function findPerson(string $gedcomId = null)
     {
-        return $this->em->getRepository(Person::class)
-            ->findOneByGedcomId($gedcomId);
+        return $this->personRepository->findOneByGedcomId($gedcomId);
     }
 }

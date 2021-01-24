@@ -66,7 +66,7 @@ class File
      *
      * @return int
      */
-    public function getId()
+    public function getId(): int
     {
         return $this->id;
     }
@@ -78,7 +78,7 @@ class File
      *
      * @return File
      */
-    public function setTitle($title)
+    public function setTitle(string $title): File
     {
         $this->title = $title;
 
@@ -90,7 +90,7 @@ class File
      *
      * @return string
      */
-    public function getTitle()
+    public function getTitle(): string
     {
         return $this->title;
     }
@@ -102,7 +102,7 @@ class File
      *
      * @return File
      */
-    public function setPath($path)
+    public function setPath(string $path): File
     {
         $this->path = $path;
 
@@ -114,7 +114,7 @@ class File
      *
      * @return string
      */
-    public function getPath()
+    public function getPath(): string
     {
         return $this->path;
     }
@@ -122,7 +122,7 @@ class File
     /**
      * Get the value of families.
      */
-    public function getFamilies()
+    public function getFamilies(): ArrayCollection
     {
         return $this->families;
     }
@@ -130,9 +130,11 @@ class File
     /**
      * Add the family.
      *
+     * @param Family $family
+     *
      * @return self
      */
-    public function addFamily($family)
+    public function addFamily(Family $family): File
     {
         $family->addFile($this);
         $this->families[] = $family;
@@ -143,7 +145,7 @@ class File
     /**
      * Get persons.
      */
-    public function getPersons()
+    public function getPersons(): ArrayCollection
     {
         return $this->persons;
     }
@@ -151,9 +153,11 @@ class File
     /**
      * Add the person.
      *
+     * @param Person $person
+     *
      * @return self
      */
-    public function addPerson($person)
+    public function addPerson(Person $person): File
     {
         $person->addFile($this);
         $this->persons[] = $person;
