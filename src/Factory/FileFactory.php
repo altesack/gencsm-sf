@@ -5,15 +5,18 @@ namespace App\Factory;
 use App\Entity\Family;
 use App\Entity\File;
 use App\Entity\Person;
+use App\Repository\FileRepository;
 use Doctrine\ORM\EntityManagerInterface;
 
 class FileFactory
 {
     private $em;
+    private $fileRepository;
 
-    public function __construct(EntityManagerInterface $em)
+    public function __construct(EntityManagerInterface $em, FileRepository $fileRepository)
     {
         $this->em = $em;
+        $this->fileRepository = $fileRepository;
     }
 
     public function addFileToPerson(Person $person, string $path, string $title)
@@ -40,9 +43,9 @@ class FileFactory
      *
      * @return File
      */
-    public function findOrCreateFile(string $path, string $title)
+    public function findOrCreateFile(string $path, string $title): File
     {
-        $file = $this->em->getRepository(File::class)->findOneByPath($path);
+        $file = $this->fileRepository->findOneByPath($path);
         if (!$file) {
             $file = (new File())
                 ->setTitle($title)

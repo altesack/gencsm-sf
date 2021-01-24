@@ -24,7 +24,7 @@ class EventFactory
         string $date = null,
         Place $place = null,
         string $description = ''
-    ) {
+    ): PersonsEvent {
         $event = (new PersonsEvent())
             ->setPerson($person)
             ->setTitle($type)
@@ -43,7 +43,7 @@ class EventFactory
         string $date = null,
         Place $place = null,
         string $description = ''
-    ) {
+    ): FamilyEvent {
         $event = (new FamilyEvent())
             ->setFamily($family)
             ->setTitle($type)

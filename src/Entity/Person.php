@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Timestampable\Traits\TimestampableEntity;
 
@@ -121,7 +122,7 @@ class Person
      *
      * @return Person
      */
-    public function setGivn($givn)
+    public function setGivn(string $givn): Person
     {
         $this->givn = $givn;
 
@@ -133,7 +134,7 @@ class Person
      *
      * @return string
      */
-    public function getGivn()
+    public function getGivn(): string
     {
         return $this->givn;
     }
@@ -141,11 +142,11 @@ class Person
     /**
      * Set surn.
      *
-     * @param string $surn
+     * @param string|null $surn
      *
      * @return Person
      */
-    public function setSurn($surn)
+    public function setSurn(string $surn = null): Person
     {
         $this->surn = $surn;
 
@@ -155,9 +156,9 @@ class Person
     /**
      * Get surn.
      *
-     * @return string
+     * @return string|null
      */
-    public function getSurn()
+    public function getSurn(): ?string
     {
         return $this->surn;
     }
@@ -165,11 +166,11 @@ class Person
     /**
      * Set sex.
      *
-     * @param string $sex
+     * @param string|null $sex
      *
      * @return Person
      */
-    public function setSex($sex)
+    public function setSex(string $sex = null): Person
     {
         $this->sex = $sex;
 
@@ -179,9 +180,9 @@ class Person
     /**
      * Get sex.
      *
-     * @return string
+     * @return string|null
      */
-    public function getSex()
+    public function getSex(): ?string
     {
         return $this->sex;
     }
@@ -189,11 +190,11 @@ class Person
     /**
      * Set description.
      *
-     * @param string $description
+     * @param string|null $description
      *
      * @return Person
      */
-    public function setDescription($description)
+    public function setDescription(string $description = null): Person
     {
         $this->description = $description;
 
@@ -203,9 +204,9 @@ class Person
     /**
      * Get description.
      *
-     * @return string
+     * @return string|null
      */
-    public function getDescription()
+    public function getDescription(): ?string
     {
         return $this->description;
     }
@@ -213,7 +214,7 @@ class Person
     /**
      * Get born family.
      */
-    public function getBornInFamily()
+    public function getBornInFamily(): ?Family
     {
         return $this->bornInFamily;
     }
@@ -221,9 +222,10 @@ class Person
     /**
      * Set born family.
      *
+     * @param Family $bornInFamily
      * @return self
      */
-    public function setBornInFamily($bornInFamily)
+    public function setBornInFamily(Family $bornInFamily): Person
     {
         $this->bornInFamily = $bornInFamily;
 
@@ -233,15 +235,17 @@ class Person
     /**
      * Get families where the person is husband.
      */
-    public function getHusbandInFamilies()
+    public function getHusbandInFamilies(): Collection
     {
         return $this->husbandInFamilies;
     }
 
     /**
      * Add family where the person is husband.
+     * @param Family $family
+     * @return Person
      */
-    public function addHusbandInFamilies(Family $family)
+    public function addHusbandInFamilies(Family $family): Person
     {
         if (!$this->husbandInFamilies->contains($family)) {
             $this->husbandInFamilies[] = $family;
@@ -254,15 +258,17 @@ class Person
     /**
      * Get families where the person is wife.
      */
-    public function getWifeInFamilies()
+    public function getWifeInFamilies(): Collection
     {
         return $this->wifeInFamilies;
     }
 
     /**
      * Add family where the person is wife.
+     * @param Family $family
+     * @return Person
      */
-    public function addWifeInFamilies(Family $family)
+    public function addWifeInFamilies(Family $family): Person
     {
         if (!$this->wifeInFamilies->contains($family)) {
             $this->wifeInFamilies[] = $family;
@@ -275,7 +281,7 @@ class Person
     /**
      * Get files.
      */
-    public function getFiles()
+    public function getFiles(): Collection
     {
         return $this->files;
     }
@@ -283,9 +289,10 @@ class Person
     /**
      * Add file.
      *
+     * @param File $file
      * @return self
      */
-    public function addFile(File $file)
+    public function addFile(File $file): Person
     {
         $this->files[] = $file;
 
@@ -295,7 +302,7 @@ class Person
     /**
      * Get events.
      */
-    public function getEvents()
+    public function getEvents(): Collection
     {
         return $this->events;
     }
@@ -303,9 +310,10 @@ class Person
     /**
      * Add event.
      *
+     * @param PersonsEvent $event
      * @return self
      */
-    public function addEvent(PersonsEvent $event)
+    public function addEvent(PersonsEvent $event): Person
     {
         if (!$this->events->contains($event)) {
             $this->events[] = $event;
@@ -316,19 +324,19 @@ class Person
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getGedcomId(): string
+    public function getGedcomId(): ?string
     {
         return $this->gedcomId;
     }
 
     /**
-     * @param string $gedcomId
+     * @param string|null $gedcomId
      *
      * @return Person
      */
-    public function setGedcomId(string $gedcomId)
+    public function setGedcomId(string $gedcomId = null): Person
     {
         $this->gedcomId = $gedcomId;
 

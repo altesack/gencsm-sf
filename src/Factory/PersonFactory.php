@@ -21,7 +21,7 @@ class PersonFactory
         $this->eventFactory = $eventFactory;
     }
 
-    public function createPerson(string $givn = null, string $surn = null, string $sex = null, string $gedcomId = null)
+    public function createPerson(string $givn = null, string $surn = null, string $sex = null, string $gedcomId = null): Person
     {
         $person = (new Person())
             ->setGivn($givn)
