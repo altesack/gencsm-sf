@@ -131,6 +131,7 @@ class File
      * Add the family.
      *
      * @param Family $family
+     *
      * @return self
      */
     public function addFamily(Family $family): File
@@ -153,6 +154,7 @@ class File
      * Add the person.
      *
      * @param Person $person
+     *
      * @return self
      */
     public function addPerson(Person $person): File
