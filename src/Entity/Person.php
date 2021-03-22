@@ -26,7 +26,6 @@ class Person
      */
     private $id;
 
-
     /**
      * @var string
      *
@@ -108,7 +107,6 @@ class Person
 
     /**
      * Get id.
-     *
      */
     public function getId()
     {
