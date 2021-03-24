@@ -5,7 +5,9 @@ namespace App\Controller;
 use App\Entity\Family;
 use App\Entity\Person;
 use App\Normalizer\FamilyNormalizer;
+use App\Normalizer\PersonArrayShortNormalizer;
 use App\Normalizer\PersonNormalizer;
+use App\Repository\PersonRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Annotation\Route;
@@ -43,5 +45,24 @@ class ApiController extends AbstractController
         $data = (new FamilyNormalizer())->normalize($family);
 
         return $this->json($data);
+    }
+
+    /**
+     * @Route("api/person/search/{searchString}")
+     *
+     * @param string $searchString
+     *
+     * @throws ExceptionInterface
+     *
+     * @return JsonResponse
+     */
+    public function findPersonAction(string $searchString, PersonRepository $personRepository): JsonResponse
+    {
+        $persons = $personRepository->findBySearchString($searchString, 100);
+
+        return $this->json([
+            'count' => $personRepository->countBySearchString($searchString),
+            'data' => (new PersonArrayShortNormalizer())->normalize($persons)
+        ]);
     }
 }
