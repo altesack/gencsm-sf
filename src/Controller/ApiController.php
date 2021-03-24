@@ -62,7 +62,7 @@ class ApiController extends AbstractController
 
         return $this->json([
             'count' => $personRepository->countBySearchString($searchString),
-            'data' => (new PersonArrayShortNormalizer())->normalize($persons)
+            'data'  => (new PersonArrayShortNormalizer())->normalize($persons),
         ]);
     }
 }
